@@ -19,7 +19,7 @@ services:
   web:
     build: .
     container_name: booking_web
-    command: ./entrypoint.sh
+    command: python entrypoint.py
     volumes:
       - .:/app
     ports:
