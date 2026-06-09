@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Booking System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Workshop Booking System</h1>
+        <nav class="nav" id="nav-auth">
+            <button id="btn-show-login">Вход</button>
+            <button id="btn-show-register">Регистрация</button>
+        </nav>
+        <nav class="nav hidden" id="nav-user">
+            <span id="user-info"></span>
+            <button id="btn-logout">Выход</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="section-login" class="card hidden">
+            <h2>Вход</h2>
+            <form id="form-login">
+                <label>Имя пользователя<input type="text" name="username" required></label>
+                <label>Пароль<input type="password" name="password" required></label>
+                <button type="submit">Войти</button>
+            </form>
+        </section>
+
+        <section id="section-register" class="card hidden">
+            <h2>Регистрация</h2>
+            <form id="form-register">
+                <label>Имя пользователя<input type="text" name="username" required></label>
+                <label>Email<input type="email" name="email" required></label>
+                <label>Пароль<input type="password" name="password" required minlength="8"></label>
+                <label>Подтверждение пароля<input type="password" name="password_confirm" required></label>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </section>
+
+        <div id="alert" class="alert hidden"></div>
+        <div id="loader" class="loader hidden">Загрузка...</div>
+
+        <section id="section-workshops" class="card">
+            <div class="section-header">
+                <h2>Мастер-классы</h2>
+                <button id="btn-refresh-workshops">Обновить</button>
+            </div>
+            <div id="workshops-list"></div>
+        </section>
+
+        <section id="section-bookings" class="card hidden">
+            <h2>Мои бронирования</h2>
+            <div id="bookings-list"></div>
+        </section>
+
+        <section id="section-admin" class="card hidden">
+            <h2>Управление мастер-классами (админ)</h2>
+            <form id="form-workshop">
+                <input type="hidden" name="workshop_id" id="workshop-id">
+                <label>Название<input type="text" name="title" required></label>
+                <label>Описание<textarea name="description" required></textarea></label>
+                <label>Дата и время<input type="datetime-local" name="date" required></label>
+                <label>Вместимость<input type="number" name="capacity" min="1" required></label>
+                <button type="submit" id="btn-save-workshop">Создать</button>
+                <button type="button" id="btn-cancel-edit" class="hidden">Отмена</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
